@@ -97,6 +97,8 @@ kafkacat -b localhost:9092 -t custchannel
 docker exec -it mongodb mongo
 ````
 
+create the DB
+
 ````
 use custchannel
 ````
