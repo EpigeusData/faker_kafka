@@ -3,6 +3,14 @@
 based on:
 * https://towardsdatascience.com/assessing-the-quality-of-data-in-streams-2c6352bcbb5b
 
+## Steps to run the LAB
+
+* Start the Docker services `docker-compose up`
+* Create the Kafka topic `docker exec faker_kafka kafka-topics --bootstrap-server localhost:9092 --topic custchannel --create`
+* Start the producer `./producer_cust_ch.py`
+* Start the kafka consumer to write to MongoDB `./consumer_cust_ch.py`
+* Run data quality tests on streaming data
+
 # The architecture
 
 How does a streaming data quality architecture look like?
