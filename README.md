@@ -102,3 +102,10 @@ create the DB
 ````
 use custchannel
 ````
+
+
+
+# 5. Creating 2 consumer groups (applications) to consumer data
+
+
+Now, let's create a new file consumer_cust_ch.py and import JSON.loads, the KafkaConsumer class, and MongoClient from pymongo.
