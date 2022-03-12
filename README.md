@@ -144,3 +144,31 @@ docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
 ksql> CREATE STREAM custdqdemo (name VARCHAR, address VARCHAR, phone VARCHAR, job VARCHAR, email VARCHAR, dob VARCHAR, created_at VARCHAR) \
 WITH (VALUE_FORMAT = 'JSON', KAFKA_TOPIC = 'custchannel');
 ````
+
+We can look at the messages from the topic custchannel, being displayed as we query the stream.
+
+````
+ksql> select * from custdqdemo EMIT CHANGES;
+````
+
+8. Assessing a stream and creating an exception stream with data quality validations
+
+In the ksql script, I am using a simple case statement to check for
+a. policy exception if the customer’s date of birth is behind 1980.
+b. valid profession/job names.
+
+
+````
+CREATE STREAM custexcep AS
+SELECT name,
+       CASE
+         WHEN dob < '1980-01-01'      THEN 'Policyexception'
+         WHEN job = 'Arboriculturist' THEN 'Not standard profession'
+         ELSE                                      'Correct'
+       END AS Quality
+  FROM CUSTDQDEMO;
+````
+
+````
+ksql> select * from custexcep EMIT CHANGES;
+````
