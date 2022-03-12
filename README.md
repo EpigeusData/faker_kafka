@@ -113,9 +113,12 @@ Now, let's create a new file consumer_cust_ch.py and import JSON.loads, the Kafk
 
 
 
-6. Creating another consumer group to read the same messages
+6. Creating another consumer group to read the same messages - multiple consumers
 
+ group mdm is subscribed to the same topic custchannel.
 
 ````
 kafka-consumer-groups.sh --bootstrap-server localhost:9092 --topic custchannel --group mdm
 ````
+
+# KSQL Part
