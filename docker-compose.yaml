@@ -38,9 +38,9 @@ services:
     container_name: mongodb
     ports:
       - 27017:27017
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=kakoje
-      - MONGO_INITDB_ROOT_PASSWORD=staima
+    # environment:
+    #   - MONGO_INITDB_ROOT_USERNAME=kakoje
+    #   - MONGO_INITDB_ROOT_PASSWORD=staima
 
   ksqldb-server:
     image: confluentinc/ksqldb-server:latest
