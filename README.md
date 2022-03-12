@@ -133,3 +133,9 @@ kafka-consumer-groups.sh --bootstrap-server localhost:9092 --topic custchannel -
 ````
 
 # KSQL Part
+
+connect to KSQL
+
+````
+docker exec -it ksqldb-cli ksql
+````
