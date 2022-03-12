@@ -3,6 +3,17 @@
 based on:
 * https://towardsdatascience.com/assessing-the-quality-of-data-in-streams-2c6352bcbb5b
 
+# The architecture
+
+How does a streaming data quality architecture look like?
+
+* Create a customer application that captures customer demography details
+* Declare 2 consuming applications — one for MDM and the other for the analytical sandbox.
+* Run an incremental quality analysis on arriving data from the online portal where customers are registering themselves for a product
+* Run a data quality test on arriving data using ksql using consistency and validity data quality rules
+* Send notifications back to customers, based on validation results
+* Capture the metrics in the dashboard for visualization
+
 # Kafka
 
 ## Start docker-compose
