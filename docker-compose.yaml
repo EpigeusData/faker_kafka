@@ -29,3 +29,12 @@ services:
     container_name: kafkacat
     image: confluentinc/cp-kafkacat:5.0.0
     command: tail -F /dev/null
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=kakoje
+      - MONGO_INITDB_ROOT_PASSWORD=staima

@@ -91,3 +91,12 @@ kafkacat -b localhost:9092 -t custchannel
 # MongoDB part (TODO)
 
 ## 4. Having a namespace including database and collection to store incoming customer records on MongoDB
+
+
+````
+docker exec -it mongodb mongo
+````
+
+````
+use custchannel
+````
