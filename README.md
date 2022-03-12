@@ -137,5 +137,10 @@ kafka-consumer-groups.sh --bootstrap-server localhost:9092 --topic custchannel -
 connect to KSQL
 
 ````
-docker exec -it ksqldb-cli ksql
+docker exec -it ksqldb-cli ksql http://ksqldb-server:8088
+````
+
+````
+ksql> CREATE STREAM custdqdemo (name VARCHAR, address VARCHAR, phone VARCHAR, job VARCHAR, email VARCHAR, dob VARCHAR, created_at VARCHAR) \
+WITH (VALUE_FORMAT = 'JSON', KAFKA_TOPIC = 'custchannel');
 ````
